@@ -7,8 +7,13 @@ function Question({ question, onAnswered }) {
   useEffect (() => {
     
     const timer = setTimeout(() => {
-      setTimeRemaining((timeRemaining) => timeRemaining -1)
+      setTimeRemaining((timeRemaining) => timeRemaining - 1)
     }, 1000)
+
+    if (timeRemaining === 0) {
+      setTimeRemaining(10)
+      onAnswered(false)
+    }
   })
 
   function handleAnswer(isCorrect) {
