@@ -14,7 +14,9 @@ function Question({ question, onAnswered }) {
       setTimeRemaining(10)
       onAnswered(false)
     }
-  })
+
+    return () => clearTimeout(timer)
+  }, [timeRemaining, onAnswered])
 
   function handleAnswer(isCorrect) {
     setTimeRemaining(10);
